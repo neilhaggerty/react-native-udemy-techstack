@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import { connect } from 'react-redux';
 import { CardSection } from './common';
+import * as actions from '../actions';
 
 class ListItem extends Component {
   render() {
+    console.log(this.props);
     const { titleStyle } = styles;
     return (
       <CardSection>
@@ -22,4 +25,6 @@ const styles = {
   }
 };
 
-export default ListItem;
+// first argument is for mapStateToProps, no mapStateToProps -> passing null
+// 'actions' (below) passes all items to ListItem in actions to props
+export default connect(null, actions)(ListItem);
